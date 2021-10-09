@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package healthyro.recipe;
+
+option go_package = "./recipe";
+
+message Recipe {
+    string id = 1;
+}

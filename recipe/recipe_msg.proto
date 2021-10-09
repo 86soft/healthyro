@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package healthyro.recipe;
+
+import "recipe/recipe_data.proto";
+option go_package = "./recipe";
+message ListRecipesRequest {
+  }
+  
+  message ListRecipesResponse {
+    repeated Recipe recipes = 1;
+  }
+  
+  message GetRecipeRequest {
+    string name = 1;
+  }
+  
+  message CreateRecipeRequest {
+    string parent = 1;
+  
+    string recipe_id = 2;
+  
+    Recipe recipe = 3;
+  }
+  
+  message UpdateRecipeRequest {
+    Recipe recipe = 1;
+  }
+  
+  message DeleteRecipeRequest {
+    string name = 1;
+  }
+  

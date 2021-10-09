@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package healthyro.recipe;
+
+import "recipe/recipe_data.proto";
+import "recipe/recipe_msg.proto";
+
+import "common/empty.proto";
+
+option go_package = "./recipe";
+
+service RecipeService {
+  rpc ListRecipes(ListRecipesRequest) returns (ListRecipesResponse) {
+  }
+
+  rpc GetRecipe(GetRecipeRequest) returns (Recipe) {
+  }
+
+  rpc CreateRecipe(CreateRecipeRequest) returns (Recipe) {
+  }
+
+  rpc UpdateRecipe(UpdateRecipeRequest) returns (Recipe) {
+  }
+
+  rpc DeleteRecipe(DeleteRecipeRequest) returns (common.Empty) {
+  }
+}
+
