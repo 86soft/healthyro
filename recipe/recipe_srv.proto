@@ -2,7 +2,6 @@ syntax = "proto3";
 
 package healthyro.recipe;
 
-import "recipe/recipe_data.proto";
 import "recipe/recipe_msg.proto";
 
 import "common/empty.proto";
@@ -13,13 +12,13 @@ service RecipeService {
   rpc ListRecipes(ListRecipesRequest) returns (ListRecipesResponse) {
   }
 
-  rpc GetRecipe(GetRecipeRequest) returns (Recipe) {
+  rpc GetRecipe(GetRecipeRequest) returns (GetRecipeResponse) {
   }
 
-  rpc CreateRecipe(CreateRecipeRequest) returns (Recipe) {
+  rpc CreateRecipe(CreateRecipeRequest) returns (CreateRecipeResponse) {
   }
 
-  rpc UpdateRecipe(UpdateRecipeRequest) returns (Recipe) {
+  rpc UpdateRecipe(UpdateRecipeRequest) returns (common.Empty) {
   }
 
   rpc DeleteRecipe(DeleteRecipeRequest) returns (common.Empty) {
