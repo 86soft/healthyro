@@ -5,5 +5,8 @@ package healthyro.recipe;
 option go_package = "./recipe";
 
 message Recipe {
-    string id = 1;
+    string uuid = 1;
+    string title = 2;
+    string description = 3;
+    string external_link = 4;
 }

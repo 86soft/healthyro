@@ -4,30 +4,36 @@ package healthyro.recipe;
 
 import "recipe/recipe_data.proto";
 option go_package = "./recipe";
+
 message ListRecipesRequest {
   }
   
-  message ListRecipesResponse {
+message ListRecipesResponse {
     repeated Recipe recipes = 1;
   }
   
-  message GetRecipeRequest {
-    string name = 1;
+message GetRecipeRequest {
+    string uuid = 1;
   }
-  
-  message CreateRecipeRequest {
-    string parent = 1;
-  
-    string recipe_id = 2;
-  
-    Recipe recipe = 3;
-  }
-  
-  message UpdateRecipeRequest {
+message GetRecipeResponse {
     Recipe recipe = 1;
   }
   
-  message DeleteRecipeRequest {
+message CreateRecipeRequest {
+  string title = 1;
+  string description = 2;
+  string external_link = 3;
+  }
+
+message CreateRecipeResponse {
+    string uuid = 1;
+    }
+  
+message UpdateRecipeRequest {
+    Recipe recipe = 1;
+  }
+  
+message DeleteRecipeRequest {
     string name = 1;
   }
   
