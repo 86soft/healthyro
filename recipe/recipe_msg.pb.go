@@ -309,16 +309,17 @@ func (x *CreateRecipeResponse) GetUuid() string {
 	return ""
 }
 
-type UpdateRecipeRequest struct {
+type UpdateRecipeTitleRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Recipe *Recipe `protobuf:"bytes,1,opt,name=recipe,proto3" json:"recipe,omitempty"`
+	Uuid  string `protobuf:"bytes,1,opt,name=uuid,proto3" json:"uuid,omitempty"`
+	Title string `protobuf:"bytes,2,opt,name=title,proto3" json:"title,omitempty"`
 }
 
-func (x *UpdateRecipeRequest) Reset() {
-	*x = UpdateRecipeRequest{}
+func (x *UpdateRecipeTitleRequest) Reset() {
+	*x = UpdateRecipeTitleRequest{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_recipe_recipe_msg_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -326,13 +327,13 @@ func (x *UpdateRecipeRequest) Reset() {
 	}
 }
 
-func (x *UpdateRecipeRequest) String() string {
+func (x *UpdateRecipeTitleRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*UpdateRecipeRequest) ProtoMessage() {}
+func (*UpdateRecipeTitleRequest) ProtoMessage() {}
 
-func (x *UpdateRecipeRequest) ProtoReflect() protoreflect.Message {
+func (x *UpdateRecipeTitleRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_recipe_recipe_msg_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -344,16 +345,133 @@ func (x *UpdateRecipeRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use UpdateRecipeRequest.ProtoReflect.Descriptor instead.
-func (*UpdateRecipeRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use UpdateRecipeTitleRequest.ProtoReflect.Descriptor instead.
+func (*UpdateRecipeTitleRequest) Descriptor() ([]byte, []int) {
 	return file_recipe_recipe_msg_proto_rawDescGZIP(), []int{6}
 }
 
-func (x *UpdateRecipeRequest) GetRecipe() *Recipe {
+func (x *UpdateRecipeTitleRequest) GetUuid() string {
 	if x != nil {
-		return x.Recipe
+		return x.Uuid
 	}
-	return nil
+	return ""
+}
+
+func (x *UpdateRecipeTitleRequest) GetTitle() string {
+	if x != nil {
+		return x.Title
+	}
+	return ""
+}
+
+type UpdateRecipeDescriptionRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Uuid        string `protobuf:"bytes,1,opt,name=uuid,proto3" json:"uuid,omitempty"`
+	Description string `protobuf:"bytes,2,opt,name=description,proto3" json:"description,omitempty"`
+}
+
+func (x *UpdateRecipeDescriptionRequest) Reset() {
+	*x = UpdateRecipeDescriptionRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_recipe_recipe_msg_proto_msgTypes[7]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *UpdateRecipeDescriptionRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateRecipeDescriptionRequest) ProtoMessage() {}
+
+func (x *UpdateRecipeDescriptionRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_recipe_recipe_msg_proto_msgTypes[7]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateRecipeDescriptionRequest.ProtoReflect.Descriptor instead.
+func (*UpdateRecipeDescriptionRequest) Descriptor() ([]byte, []int) {
+	return file_recipe_recipe_msg_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *UpdateRecipeDescriptionRequest) GetUuid() string {
+	if x != nil {
+		return x.Uuid
+	}
+	return ""
+}
+
+func (x *UpdateRecipeDescriptionRequest) GetDescription() string {
+	if x != nil {
+		return x.Description
+	}
+	return ""
+}
+
+type UpdateRecipeExternalLinkRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Uuid         string `protobuf:"bytes,1,opt,name=uuid,proto3" json:"uuid,omitempty"`
+	ExternalLink string `protobuf:"bytes,2,opt,name=external_link,json=externalLink,proto3" json:"external_link,omitempty"`
+}
+
+func (x *UpdateRecipeExternalLinkRequest) Reset() {
+	*x = UpdateRecipeExternalLinkRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_recipe_recipe_msg_proto_msgTypes[8]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *UpdateRecipeExternalLinkRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UpdateRecipeExternalLinkRequest) ProtoMessage() {}
+
+func (x *UpdateRecipeExternalLinkRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_recipe_recipe_msg_proto_msgTypes[8]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UpdateRecipeExternalLinkRequest.ProtoReflect.Descriptor instead.
+func (*UpdateRecipeExternalLinkRequest) Descriptor() ([]byte, []int) {
+	return file_recipe_recipe_msg_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *UpdateRecipeExternalLinkRequest) GetUuid() string {
+	if x != nil {
+		return x.Uuid
+	}
+	return ""
+}
+
+func (x *UpdateRecipeExternalLinkRequest) GetExternalLink() string {
+	if x != nil {
+		return x.ExternalLink
+	}
+	return ""
 }
 
 type DeleteRecipeRequest struct {
@@ -361,13 +479,13 @@ type DeleteRecipeRequest struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Name string `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
+	Uuid string `protobuf:"bytes,1,opt,name=uuid,proto3" json:"uuid,omitempty"`
 }
 
 func (x *DeleteRecipeRequest) Reset() {
 	*x = DeleteRecipeRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_recipe_recipe_msg_proto_msgTypes[7]
+		mi := &file_recipe_recipe_msg_proto_msgTypes[9]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -380,7 +498,7 @@ func (x *DeleteRecipeRequest) String() string {
 func (*DeleteRecipeRequest) ProtoMessage() {}
 
 func (x *DeleteRecipeRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_recipe_recipe_msg_proto_msgTypes[7]
+	mi := &file_recipe_recipe_msg_proto_msgTypes[9]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -393,12 +511,12 @@ func (x *DeleteRecipeRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DeleteRecipeRequest.ProtoReflect.Descriptor instead.
 func (*DeleteRecipeRequest) Descriptor() ([]byte, []int) {
-	return file_recipe_recipe_msg_proto_rawDescGZIP(), []int{7}
+	return file_recipe_recipe_msg_proto_rawDescGZIP(), []int{9}
 }
 
-func (x *DeleteRecipeRequest) GetName() string {
+func (x *DeleteRecipeRequest) GetUuid() string {
 	if x != nil {
-		return x.Name
+		return x.Uuid
 	}
 	return ""
 }
@@ -433,15 +551,26 @@ var file_recipe_recipe_msg_proto_rawDesc = []byte{
 	0x65, 0x72, 0x6e, 0x61, 0x6c, 0x4c, 0x69, 0x6e, 0x6b, 0x22, 0x2a, 0x0a, 0x14, 0x43, 0x72, 0x65,
 	0x61, 0x74, 0x65, 0x52, 0x65, 0x63, 0x69, 0x70, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
 	0x65, 0x12, 0x12, 0x0a, 0x04, 0x75, 0x75, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52,
-	0x04, 0x75, 0x75, 0x69, 0x64, 0x22, 0x47, 0x0a, 0x13, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x52,
-	0x65, 0x63, 0x69, 0x70, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x30, 0x0a, 0x06,
-	0x72, 0x65, 0x63, 0x69, 0x70, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x18, 0x2e, 0x68,
-	0x65, 0x61, 0x6c, 0x74, 0x68, 0x79, 0x72, 0x6f, 0x2e, 0x72, 0x65, 0x63, 0x69, 0x70, 0x65, 0x2e,
-	0x52, 0x65, 0x63, 0x69, 0x70, 0x65, 0x52, 0x06, 0x72, 0x65, 0x63, 0x69, 0x70, 0x65, 0x22, 0x29,
-	0x0a, 0x13, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x52, 0x65, 0x63, 0x69, 0x70, 0x65, 0x52, 0x65,
-	0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x12, 0x0a, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x01, 0x20,
-	0x01, 0x28, 0x09, 0x52, 0x04, 0x6e, 0x61, 0x6d, 0x65, 0x42, 0x0a, 0x5a, 0x08, 0x2e, 0x2f, 0x72,
-	0x65, 0x63, 0x69, 0x70, 0x65, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x04, 0x75, 0x75, 0x69, 0x64, 0x22, 0x44, 0x0a, 0x18, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x52,
+	0x65, 0x63, 0x69, 0x70, 0x65, 0x54, 0x69, 0x74, 0x6c, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
+	0x74, 0x12, 0x12, 0x0a, 0x04, 0x75, 0x75, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52,
+	0x04, 0x75, 0x75, 0x69, 0x64, 0x12, 0x14, 0x0a, 0x05, 0x74, 0x69, 0x74, 0x6c, 0x65, 0x18, 0x02,
+	0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x74, 0x69, 0x74, 0x6c, 0x65, 0x22, 0x56, 0x0a, 0x1e, 0x55,
+	0x70, 0x64, 0x61, 0x74, 0x65, 0x52, 0x65, 0x63, 0x69, 0x70, 0x65, 0x44, 0x65, 0x73, 0x63, 0x72,
+	0x69, 0x70, 0x74, 0x69, 0x6f, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x12, 0x0a,
+	0x04, 0x75, 0x75, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x75, 0x75, 0x69,
+	0x64, 0x12, 0x20, 0x0a, 0x0b, 0x64, 0x65, 0x73, 0x63, 0x72, 0x69, 0x70, 0x74, 0x69, 0x6f, 0x6e,
+	0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x64, 0x65, 0x73, 0x63, 0x72, 0x69, 0x70, 0x74,
+	0x69, 0x6f, 0x6e, 0x22, 0x5a, 0x0a, 0x1f, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x52, 0x65, 0x63,
+	0x69, 0x70, 0x65, 0x45, 0x78, 0x74, 0x65, 0x72, 0x6e, 0x61, 0x6c, 0x4c, 0x69, 0x6e, 0x6b, 0x52,
+	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x12, 0x0a, 0x04, 0x75, 0x75, 0x69, 0x64, 0x18, 0x01,
+	0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x75, 0x75, 0x69, 0x64, 0x12, 0x23, 0x0a, 0x0d, 0x65, 0x78,
+	0x74, 0x65, 0x72, 0x6e, 0x61, 0x6c, 0x5f, 0x6c, 0x69, 0x6e, 0x6b, 0x18, 0x02, 0x20, 0x01, 0x28,
+	0x09, 0x52, 0x0c, 0x65, 0x78, 0x74, 0x65, 0x72, 0x6e, 0x61, 0x6c, 0x4c, 0x69, 0x6e, 0x6b, 0x22,
+	0x29, 0x0a, 0x13, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x52, 0x65, 0x63, 0x69, 0x70, 0x65, 0x52,
+	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x12, 0x0a, 0x04, 0x75, 0x75, 0x69, 0x64, 0x18, 0x01,
+	0x20, 0x01, 0x28, 0x09, 0x52, 0x04, 0x75, 0x75, 0x69, 0x64, 0x42, 0x0a, 0x5a, 0x08, 0x2e, 0x2f,
+	0x72, 0x65, 0x63, 0x69, 0x70, 0x65, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -456,27 +585,28 @@ func file_recipe_recipe_msg_proto_rawDescGZIP() []byte {
 	return file_recipe_recipe_msg_proto_rawDescData
 }
 
-var file_recipe_recipe_msg_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
+var file_recipe_recipe_msg_proto_msgTypes = make([]protoimpl.MessageInfo, 10)
 var file_recipe_recipe_msg_proto_goTypes = []interface{}{
-	(*ListRecipesRequest)(nil),   // 0: healthyro.recipe.ListRecipesRequest
-	(*ListRecipesResponse)(nil),  // 1: healthyro.recipe.ListRecipesResponse
-	(*GetRecipeRequest)(nil),     // 2: healthyro.recipe.GetRecipeRequest
-	(*GetRecipeResponse)(nil),    // 3: healthyro.recipe.GetRecipeResponse
-	(*CreateRecipeRequest)(nil),  // 4: healthyro.recipe.CreateRecipeRequest
-	(*CreateRecipeResponse)(nil), // 5: healthyro.recipe.CreateRecipeResponse
-	(*UpdateRecipeRequest)(nil),  // 6: healthyro.recipe.UpdateRecipeRequest
-	(*DeleteRecipeRequest)(nil),  // 7: healthyro.recipe.DeleteRecipeRequest
-	(*Recipe)(nil),               // 8: healthyro.recipe.Recipe
+	(*ListRecipesRequest)(nil),              // 0: healthyro.recipe.ListRecipesRequest
+	(*ListRecipesResponse)(nil),             // 1: healthyro.recipe.ListRecipesResponse
+	(*GetRecipeRequest)(nil),                // 2: healthyro.recipe.GetRecipeRequest
+	(*GetRecipeResponse)(nil),               // 3: healthyro.recipe.GetRecipeResponse
+	(*CreateRecipeRequest)(nil),             // 4: healthyro.recipe.CreateRecipeRequest
+	(*CreateRecipeResponse)(nil),            // 5: healthyro.recipe.CreateRecipeResponse
+	(*UpdateRecipeTitleRequest)(nil),        // 6: healthyro.recipe.UpdateRecipeTitleRequest
+	(*UpdateRecipeDescriptionRequest)(nil),  // 7: healthyro.recipe.UpdateRecipeDescriptionRequest
+	(*UpdateRecipeExternalLinkRequest)(nil), // 8: healthyro.recipe.UpdateRecipeExternalLinkRequest
+	(*DeleteRecipeRequest)(nil),             // 9: healthyro.recipe.DeleteRecipeRequest
+	(*Recipe)(nil),                          // 10: healthyro.recipe.Recipe
 }
 var file_recipe_recipe_msg_proto_depIdxs = []int32{
-	8, // 0: healthyro.recipe.ListRecipesResponse.recipes:type_name -> healthyro.recipe.Recipe
-	8, // 1: healthyro.recipe.GetRecipeResponse.recipe:type_name -> healthyro.recipe.Recipe
-	8, // 2: healthyro.recipe.UpdateRecipeRequest.recipe:type_name -> healthyro.recipe.Recipe
-	3, // [3:3] is the sub-list for method output_type
-	3, // [3:3] is the sub-list for method input_type
-	3, // [3:3] is the sub-list for extension type_name
-	3, // [3:3] is the sub-list for extension extendee
-	0, // [0:3] is the sub-list for field type_name
+	10, // 0: healthyro.recipe.ListRecipesResponse.recipes:type_name -> healthyro.recipe.Recipe
+	10, // 1: healthyro.recipe.GetRecipeResponse.recipe:type_name -> healthyro.recipe.Recipe
+	2,  // [2:2] is the sub-list for method output_type
+	2,  // [2:2] is the sub-list for method input_type
+	2,  // [2:2] is the sub-list for extension type_name
+	2,  // [2:2] is the sub-list for extension extendee
+	0,  // [0:2] is the sub-list for field type_name
 }
 
 func init() { file_recipe_recipe_msg_proto_init() }
@@ -559,7 +689,7 @@ func file_recipe_recipe_msg_proto_init() {
 			}
 		}
 		file_recipe_recipe_msg_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*UpdateRecipeRequest); i {
+			switch v := v.(*UpdateRecipeTitleRequest); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -571,6 +701,30 @@ func file_recipe_recipe_msg_proto_init() {
 			}
 		}
 		file_recipe_recipe_msg_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*UpdateRecipeDescriptionRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_recipe_recipe_msg_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*UpdateRecipeExternalLinkRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_recipe_recipe_msg_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*DeleteRecipeRequest); i {
 			case 0:
 				return &v.state
@@ -589,7 +743,7 @@ func file_recipe_recipe_msg_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_recipe_recipe_msg_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   8,
+			NumMessages:   10,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

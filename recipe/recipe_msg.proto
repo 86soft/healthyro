@@ -29,11 +29,21 @@ message CreateRecipeResponse {
     string uuid = 1;
     }
   
-message UpdateRecipeRequest {
-    Recipe recipe = 1;
+message UpdateRecipeTitleRequest {
+  string uuid = 1;
+  string title = 2;
+  }
+
+message UpdateRecipeDescriptionRequest {
+  string uuid = 1;
+  string description = 2;
+  }
+message UpdateRecipeExternalLinkRequest {
+    string uuid = 1;
+    string external_link = 2;
   }
   
 message DeleteRecipeRequest {
-    string name = 1;
+    string uuid = 1;
   }
   

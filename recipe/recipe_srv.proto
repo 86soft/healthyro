@@ -18,7 +18,13 @@ service RecipeService {
   rpc CreateRecipe(CreateRecipeRequest) returns (CreateRecipeResponse) {
   }
 
-  rpc UpdateRecipe(UpdateRecipeRequest) returns (common.Empty) {
+  rpc UpdateRecipeTitle(UpdateRecipeTitleRequest) returns (common.Empty) {
+  }
+
+  rpc UpdateRecipeDescription(UpdateRecipeDescriptionRequest) returns (common.Empty) {
+  }
+
+  rpc UpdateRecipeExternalLink(UpdateRecipeExternalLinkRequest) returns (common.Empty) {
   }
 
   rpc DeleteRecipe(DeleteRecipeRequest) returns (common.Empty) {

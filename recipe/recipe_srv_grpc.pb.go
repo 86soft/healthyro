@@ -26,7 +26,9 @@ type RecipeServiceClient interface {
 	ListRecipes(ctx context.Context, in *ListRecipesRequest, opts ...grpc.CallOption) (*ListRecipesResponse, error)
 	GetRecipe(ctx context.Context, in *GetRecipeRequest, opts ...grpc.CallOption) (*GetRecipeResponse, error)
 	CreateRecipe(ctx context.Context, in *CreateRecipeRequest, opts ...grpc.CallOption) (*CreateRecipeResponse, error)
-	UpdateRecipe(ctx context.Context, in *UpdateRecipeRequest, opts ...grpc.CallOption) (*common.Empty, error)
+	UpdateRecipeTitle(ctx context.Context, in *UpdateRecipeTitleRequest, opts ...grpc.CallOption) (*common.Empty, error)
+	UpdateRecipeDescription(ctx context.Context, in *UpdateRecipeDescriptionRequest, opts ...grpc.CallOption) (*common.Empty, error)
+	UpdateRecipeExternalLink(ctx context.Context, in *UpdateRecipeExternalLinkRequest, opts ...grpc.CallOption) (*common.Empty, error)
 	DeleteRecipe(ctx context.Context, in *DeleteRecipeRequest, opts ...grpc.CallOption) (*common.Empty, error)
 }
 
@@ -65,9 +67,27 @@ func (c *recipeServiceClient) CreateRecipe(ctx context.Context, in *CreateRecipe
 	return out, nil
 }
 
-func (c *recipeServiceClient) UpdateRecipe(ctx context.Context, in *UpdateRecipeRequest, opts ...grpc.CallOption) (*common.Empty, error) {
+func (c *recipeServiceClient) UpdateRecipeTitle(ctx context.Context, in *UpdateRecipeTitleRequest, opts ...grpc.CallOption) (*common.Empty, error) {
 	out := new(common.Empty)
-	err := c.cc.Invoke(ctx, "/healthyro.recipe.RecipeService/UpdateRecipe", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/healthyro.recipe.RecipeService/UpdateRecipeTitle", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recipeServiceClient) UpdateRecipeDescription(ctx context.Context, in *UpdateRecipeDescriptionRequest, opts ...grpc.CallOption) (*common.Empty, error) {
+	out := new(common.Empty)
+	err := c.cc.Invoke(ctx, "/healthyro.recipe.RecipeService/UpdateRecipeDescription", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *recipeServiceClient) UpdateRecipeExternalLink(ctx context.Context, in *UpdateRecipeExternalLinkRequest, opts ...grpc.CallOption) (*common.Empty, error) {
+	out := new(common.Empty)
+	err := c.cc.Invoke(ctx, "/healthyro.recipe.RecipeService/UpdateRecipeExternalLink", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -90,7 +110,9 @@ type RecipeServiceServer interface {
 	ListRecipes(context.Context, *ListRecipesRequest) (*ListRecipesResponse, error)
 	GetRecipe(context.Context, *GetRecipeRequest) (*GetRecipeResponse, error)
 	CreateRecipe(context.Context, *CreateRecipeRequest) (*CreateRecipeResponse, error)
-	UpdateRecipe(context.Context, *UpdateRecipeRequest) (*common.Empty, error)
+	UpdateRecipeTitle(context.Context, *UpdateRecipeTitleRequest) (*common.Empty, error)
+	UpdateRecipeDescription(context.Context, *UpdateRecipeDescriptionRequest) (*common.Empty, error)
+	UpdateRecipeExternalLink(context.Context, *UpdateRecipeExternalLinkRequest) (*common.Empty, error)
 	DeleteRecipe(context.Context, *DeleteRecipeRequest) (*common.Empty, error)
 	mustEmbedUnimplementedRecipeServiceServer()
 }
@@ -108,8 +130,14 @@ func (UnimplementedRecipeServiceServer) GetRecipe(context.Context, *GetRecipeReq
 func (UnimplementedRecipeServiceServer) CreateRecipe(context.Context, *CreateRecipeRequest) (*CreateRecipeResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method CreateRecipe not implemented")
 }
-func (UnimplementedRecipeServiceServer) UpdateRecipe(context.Context, *UpdateRecipeRequest) (*common.Empty, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method UpdateRecipe not implemented")
+func (UnimplementedRecipeServiceServer) UpdateRecipeTitle(context.Context, *UpdateRecipeTitleRequest) (*common.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateRecipeTitle not implemented")
+}
+func (UnimplementedRecipeServiceServer) UpdateRecipeDescription(context.Context, *UpdateRecipeDescriptionRequest) (*common.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateRecipeDescription not implemented")
+}
+func (UnimplementedRecipeServiceServer) UpdateRecipeExternalLink(context.Context, *UpdateRecipeExternalLinkRequest) (*common.Empty, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UpdateRecipeExternalLink not implemented")
 }
 func (UnimplementedRecipeServiceServer) DeleteRecipe(context.Context, *DeleteRecipeRequest) (*common.Empty, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteRecipe not implemented")
@@ -181,20 +209,56 @@ func _RecipeService_CreateRecipe_Handler(srv interface{}, ctx context.Context, d
 	return interceptor(ctx, in, info, handler)
 }
 
-func _RecipeService_UpdateRecipe_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(UpdateRecipeRequest)
+func _RecipeService_UpdateRecipeTitle_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateRecipeTitleRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(RecipeServiceServer).UpdateRecipe(ctx, in)
+		return srv.(RecipeServiceServer).UpdateRecipeTitle(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/healthyro.recipe.RecipeService/UpdateRecipe",
+		FullMethod: "/healthyro.recipe.RecipeService/UpdateRecipeTitle",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(RecipeServiceServer).UpdateRecipe(ctx, req.(*UpdateRecipeRequest))
+		return srv.(RecipeServiceServer).UpdateRecipeTitle(ctx, req.(*UpdateRecipeTitleRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecipeService_UpdateRecipeDescription_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateRecipeDescriptionRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecipeServiceServer).UpdateRecipeDescription(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/healthyro.recipe.RecipeService/UpdateRecipeDescription",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecipeServiceServer).UpdateRecipeDescription(ctx, req.(*UpdateRecipeDescriptionRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _RecipeService_UpdateRecipeExternalLink_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UpdateRecipeExternalLinkRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(RecipeServiceServer).UpdateRecipeExternalLink(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/healthyro.recipe.RecipeService/UpdateRecipeExternalLink",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(RecipeServiceServer).UpdateRecipeExternalLink(ctx, req.(*UpdateRecipeExternalLinkRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -237,8 +301,16 @@ var RecipeService_ServiceDesc = grpc.ServiceDesc{
 			Handler:    _RecipeService_CreateRecipe_Handler,
 		},
 		{
-			MethodName: "UpdateRecipe",
-			Handler:    _RecipeService_UpdateRecipe_Handler,
+			MethodName: "UpdateRecipeTitle",
+			Handler:    _RecipeService_UpdateRecipeTitle_Handler,
+		},
+		{
+			MethodName: "UpdateRecipeDescription",
+			Handler:    _RecipeService_UpdateRecipeDescription_Handler,
+		},
+		{
+			MethodName: "UpdateRecipeExternalLink",
+			Handler:    _RecipeService_UpdateRecipeExternalLink_Handler,
 		},
 		{
 			MethodName: "DeleteRecipe",
