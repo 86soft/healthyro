@@ -1,7 +1,6 @@
 protos:
 		protoc \
-		 --proto_path=./common \
-		 --proto_path=. \
-		 --go-grpc_out=. \
-		 --go_out=. \
-		 ./recipe/*.proto
+		--go_out=. --go_opt=paths=source_relative \
+    	--go-grpc_out=. --go-grpc_opt=paths=source_relative \
+		 ./recipe/*.proto \
+		 ./common/empty.proto

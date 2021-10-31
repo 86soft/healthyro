@@ -3,7 +3,7 @@ syntax = "proto3";
 package healthyro.recipe;
 
 import "recipe/recipe_data.proto";
-option go_package = "./recipe";
+option go_package = "github.com/86soft/healthyro/recipe";
 
 message ListRecipesRequest {
   }

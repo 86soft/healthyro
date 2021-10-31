@@ -6,7 +6,7 @@ import "recipe/recipe_msg.proto";
 
 import "common/empty.proto";
 
-option go_package = "./recipe";
+option go_package = "github.com/86soft/healthyro/recipe";
 
 service RecipeService {
   rpc ListRecipes(ListRecipesRequest) returns (ListRecipesResponse) {
