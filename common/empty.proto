@@ -1,8 +1,0 @@
-syntax = "proto3";
-
-package healthyro.common;
-
-option go_package = "github.com/86soft/healthyro/common";
-message Empty {
-
-}

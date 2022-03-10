@@ -1,0 +1,15 @@
+version: '3.9'
+services:
+  db-mongo:
+    container_name: mongo-db
+    image: mongo:latest
+    ports:
+      - 27017:27017
+    volumes:
+      - data-mongo:/data/db
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=healthyrodb
+      - MONGO_INITDB_ROOT_PASSWORD=S3cret
+volumes:
+  data-mongo:
+    external: true
