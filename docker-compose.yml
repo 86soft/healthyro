@@ -1,15 +1,25 @@
 version: '3.9'
+
 services:
-  db-mongo:
-    container_name: mongo-db
-    image: mongo:latest
+  mongodb:
+    container_name: mongodb
+    image: mongo:5.0.8
+    volumes:
+      - data-mongo-1:/data/db
+      - ./rs-init.sh:/scripts/rs-init.sh
+    networks:
+      - mongors-network
+    expose:
+      - 27017
     ports:
       - 27017:27017
-    volumes:
-      - data-mongo:/data/db
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME=healthyrodb
-      - MONGO_INITDB_ROOT_PASSWORD=S3cret
+    restart: always
+    command: "/usr/bin/mongod --bind_ip_all --replSet dbrs"
+
+networks:
+  mongors-network:
+    driver: bridge
+
 volumes:
-  data-mongo:
+  data-mongo-1:
     external: true

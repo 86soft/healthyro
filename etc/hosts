@@ -1,0 +1,3 @@
+127.0.0.1 mongo-primary
+127.0.0.1 mongo-secondary
+127.0.0.1 mongo-arbiter
